@@ -37,8 +37,6 @@
     var y = 50; // y position
     var x = 200; // x position
 
-    var yguy = mouseY-30; // y player position
-
     var points = 0; // pontuação
 
     function draw () {
@@ -50,6 +48,8 @@
 
         y += speedY; // moving ball
         x += speedX; 
+
+        var yguy = mouseY-30; // y player position
 
         if (y <= 15) {
             speedY *= -1; // if hitting edges, come back
@@ -68,13 +68,13 @@
 
         if (mouseY >= 370) {
             yguy = 400; // makes player never leave screen
-        } elseif (mouseY <= 30) {
+        } else if (mouseY <= 30) {
             yguy = 0; // makes player never leave screen
         } else {
             yguy = mouseY;
-        };
+        }
 
-        if (x-15 <= 55 && x-15 >= 50 && y+15 >= mouseY-30 && y-15 <= mouseY+30) { // If hitting player's racket
+        if (x-15 <= 55 && x-15 >= 50 && y+15 >= yguy && y-15 <= yguy+60) { // If hitting player's racket
             speedX *= -1; // come back
             speedX += 0.1; // makes ball speed up
             points++; // aumenta a pontuação
@@ -98,7 +98,7 @@
 
             fill(255, 50, 50);
             textSize(50); 
-            text("YOU LOST", 100, 200); // appear text telling ya your state of loser
+            text("VC PERDEU", 100, 200); // appear text telling ya your state of loser
         }
     }
 
