@@ -66,9 +66,9 @@
         fill(0);
         rect(50, yguy, 5, 60); // player rectangle
 
-        if (mouseY >= 370) {
+        if (mouseY >= 400) {
             yguy = 400; // makes player never leave screen
-        } else if (mouseY <= 30) {
+        } else if (mouseY <= 0) {
             yguy = 0; // makes player never leave screen
         } else {
             yguy = mouseY;
@@ -94,7 +94,7 @@
             fill(100, 200, 250);
             stroke(255, 0, 0);
             strokeWeight(3);
-            rect(90, 150, 270, 60); // destaque em vc perdendo
+            rect(90, 150, 300, 60); // destaque em vc perdendo
 
             fill(255, 50, 50);
             textSize(50); 
