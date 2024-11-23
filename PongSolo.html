@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Solo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        canvas {
+            border: 4px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pong Solo</h1>
+
+    <p>Este é um jogo por Bento Rulli Gomes</p>
+    <p>Ainda não é totalmente funcionável (se é que essa palavra existe), mas vai ser quando eu souber como</p>
+    <p>Mas enquanto isso aproveite o que Bento fez</p>
+    <p>É o que tem pra hoje</p>
+
+    <h3>TUTORIAL:</h3>
+    <p> - A pequena linha do lado esquerdo é você</p>
+    <p> - Ela vai seguir seu mouse no eixo y</p>
+    <p> - A cada vez que vc acerta a bola vc ganha 1 ponto, mas a velocidade dela aumenta</p>
+    <p> - Não deixe a bola azul tocar no lado esquerdo da tela</p>
+    <p> - Caso contrário...</p>
+
+    <script>
+    function setup() {
+        createCanvas(400, 400);
+    }
+
+    var speedX = 3; // x direction
+    var speedY = 3; // y direction
+    
+    var y = 50; // y position
+    var x = 200; // x position
+
+    var points = 0; // pontuação
+
+    function draw () {
+        background(255);
+
+        noStroke();
+        fill(100, 200, 250);
+        ellipse(x, y, 30, 30); // ball
+
+        y += speedY; // moving ball
+        x += speedX; 
+
+        if (y <= 15) {
+            speedY *= -1; // if hitting edges, come back
+        }                          
+
+        if (x >= 385) {
+            speedX *= -1;
+        }
+
+        if (y >= 385) {
+            speedY *= -1;
+        }
+
+        fill(0);
+        rect(50, mouseY-30, 5, 60); // player rectangle
+
+        if (x-15 <= 55 && x-15 >= 50 && y+15 >= mouseY-30 && y-15 <= mouseY+30) { // If hitting player's racket
+            speedX *= -1; // come back
+            speedX += 0.1; // makes ball speed up
+            points++; // aumenta a pontuação
+        }
+
+        textSize(20);
+        fill(0);
+        text("Pontos: " + points, 250, 40); // pontuação
+        noFill();
+        stroke(0)
+        rect(240, 15, 110, 35); // destaque na pontuação
+
+        if (x <= 15) { // if hitting left wall
+            speedX = 0;
+            speedY = 0; // make ball stop functioning
+
+            fill(100, 200, 250);
+            stroke(255, 0, 0);
+            strokeWeight(3);
+            rect(90, 150, 270, 60); // destaque em vc perdendo
+
+            fill(255, 50, 50);
+            textSize(50); 
+            text("YOU LOST", 100, 200); // appear text telling ya your state of loser
+        }
+    }
+
+    </script>
+</body>
+</html>
