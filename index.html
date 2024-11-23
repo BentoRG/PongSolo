@@ -37,6 +37,8 @@
     var y = 50; // y position
     var x = 200; // x position
 
+    var yguy = mouseY-30;
+
     var points = 0; // pontuação
 
     function draw () {
@@ -62,7 +64,15 @@
         }
 
         fill(0);
-        rect(50, mouseY-30, 5, 60); // player rectangle
+        rect(50, yguy, 5, 60); // player rectangle
+
+        if (mouseY >= 370) {
+            yguy = 370; // makes player never leave screen
+        };
+
+        if (mouseY <= 30) {
+            yguy = 30; // makes player never leave screen
+        };
 
         if (x-15 <= 55 && x-15 >= 50 && y+15 >= mouseY-30 && y-15 <= mouseY+30) { // If hitting player's racket
             speedX *= -1; // come back
