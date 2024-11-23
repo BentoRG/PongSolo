@@ -16,7 +16,7 @@
 
     <p>Este é um jogo por Bento Rulli Gomes</p>
     <p>Ainda não é totalmente funcionável (se é que essa palavra existe), mas vai ser quando eu souber como</p>
-    <p>Mas enquanto isso aproveite o que Bento fez</p>
+    <p>Mas enquanto isso aproveite o que eu fiz</p>
     <p>É o que tem pra hoje</p>
 
     <h3>TUTORIAL:</h3>
@@ -48,9 +48,7 @@
 
         y += speedY; // moving ball
         x += speedX; 
-
-        var yguy = mouseY-30; // y player position
-
+        
         if (y <= 15) {
             speedY *= -1; // if hitting edges, come back
         }                          
@@ -63,16 +61,16 @@
             speedY *= -1;
         }
 
+        if (mouseY >= 370) {
+             var yguy = 340; // makes player never leave screen
+        } else if (mouseY <= 30) {
+            var yguy = 0; // makes player never leave screen
+        } else {
+            var yguy = mouseY-30;
+        }
+        
         fill(0);
         rect(50, yguy, 5, 60); // player rectangle
-
-        if (mouseY >= 400) {
-            yguy = 400; // makes player never leave screen
-        } else if (mouseY <= 0) {
-            yguy = 0; // makes player never leave screen
-        } else {
-            yguy = mouseY;
-        }
 
         if (x-15 <= 55 && x-15 >= 50 && y+15 >= yguy && y-15 <= yguy+60) { // If hitting player's racket
             speedX *= -1; // come back
@@ -98,7 +96,7 @@
 
             fill(255, 50, 50);
             textSize(50); 
-            text("VC PERDEU", 100, 200); // appear text telling ya your state of loser
+            text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
         }
     }
 
