@@ -37,7 +37,7 @@
     var y = 50; // y position
     var x = 200; // x position
 
-    var yguy = mouseY-30;
+    var yguy = mouseY-30; // y player position
 
     var points = 0; // pontuação
 
@@ -67,11 +67,11 @@
         rect(50, yguy, 5, 60); // player rectangle
 
         if (mouseY >= 370) {
-            yguy = 370; // makes player never leave screen
-        };
-
-        if (mouseY <= 30) {
-            yguy = 30; // makes player never leave screen
+            yguy = 400; // makes player never leave screen
+        } elseif (mouseY <= 30) {
+            yguy = 0; // makes player never leave screen
+        } else {
+            yguy = mouseY;
         };
 
         if (x-15 <= 55 && x-15 >= 50 && y+15 >= mouseY-30 && y-15 <= mouseY+30) { // If hitting player's racket
