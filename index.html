@@ -9,17 +9,42 @@
         canvas {
             border: 4px solid black;
         }
+
+        body {
+            font-family: monospace;
+            line-height: 0.5em;
+            font-size: 15px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        h2 {
+            line-height: 1em;    
+            font-family: cursive;
+            text-decoration: underline;
+            font-style: italic;
+            text-align: center;
+
+            background-color: rgb(100, 150, 255);
+        }
+
+        ul {
+            line-height: 1.5em;
+            background-color: rgb(100, 150, 255);
+        }
     </style>
 </head>
 <body>
     <h1>Pong Solo</h1>
 
     <p>Este é um jogo por Bento Rulli Gomes</p>
-    <p>Ainda não é totalmente funcionável (se é que essa palavra existe), mas vai ser quando eu souber como</p>
+    <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como</p>
     <p>Mas enquanto isso aproveite o que eu fiz</p>
     <p>É o que tem pra hoje</p>
 
-    <h2><em>TUTORIAL:</em></h2>
+    <h2>TUTORIAL:</h2>
     
     <ul>
         <li>A pequena linha do lado esquerdo é você</li>
@@ -89,20 +114,36 @@
         strokeWeight(1);
         rect(240, 15, 110, 35); // destaque na pontuação
 
-        if (x <= 15) { // if hitting left wall
+        if (x <= 15) { // if hitting left wall makes you LOSE
             speedX = 0;
             speedY = 0; // make ball stop functioning
 
             fill(100, 200, 250);
             stroke(255, 0, 0);
             strokeWeight(3);
-            rect(90, 150, 300, 60); // destaque em vc perdendo
+            rect(90, 250, 300, 60); // destaque em vc perdendo
 
             fill(255, 50, 50);
             textSize(50); 
-            text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
+            text("VC PERDEU", 95, 300); // appear text telling ya your state of loser
+
+            /*fill(255);
+            rect(150, 80, 150, 60); // restart button
+
+            fill(0);
+            textSize(40);
+            noStroke();
+            text("Restart", 155, 125);*/
         }
     }
+
+    /*function mouseClicked () {
+        if (mouseX >= 150 && mouseX <= 300 && mouseY >= 80 && mouseY <= 140) {
+            fill(0);
+            textSize(30);
+            text("worked", 300, 300);
+        }
+    }*/
 
     </script>
 </body>
