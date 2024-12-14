@@ -17,7 +17,7 @@
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 4em;
             text-align: center;
             line-height: 30px;
         }
@@ -41,18 +41,27 @@
             position: relative;
             right: 50px;
             border: 5px solid black;
-            border-radius: 5px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        #creditos {
+            background-color: #F38630;
+            padding: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+            border: 5px solid black;
+            border-radius: 20px;
+            float: right;
+            position: relative;
+            right: 100px;
+            top: 40px;
         }
 
     </style>
 </head>
 <body>
     <h1>Pong Solo</h1>
-
-    <p>Este é um jogo por Bento Rulli Gomes.</p>
-    <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como.</p>
-    <p>Mas enquanto isso aproveite o que eu fiz.</p>
-    <p>É o que tem pra hoje.</p>
 
     <div id="tutorial">
         <h2>TUTORIAL:</h2>
@@ -64,6 +73,13 @@
             <li>Não deixe a bola azul tocar no lado esquerdo da tela</li>
             <li>Caso contrário...</li>
         </ul>
+    </div>
+
+    <div id="creditos">
+        <p>Este é um jogo por Bento Rulli Gomes.</p>
+        <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como.</p>
+        <p>Mas enquanto isso aproveite o que eu fiz.</p>
+        <p>É o que tem pra hoje.</p>
     </div>
 
     <script>
