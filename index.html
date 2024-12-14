@@ -18,6 +18,8 @@
 
         h1 {
             font-size: 3em;
+            text-align: center;
+            line-height: 30px;
         }
 
         h2 {
@@ -26,33 +28,43 @@
             text-decoration: underline;
             font-style: italic;
             text-align: center;
-
-            background-color: rgb(100, 150, 255);
         }
 
         ul {
             line-height: 1.5em;
-            background-color: rgb(100, 150, 255);
+            padding: 20px;
         }
+
+        #tutorial {
+            background-color: rgb(100, 200, 255);
+            float: right;
+            position: relative;
+            right: 50px;
+            border: 5px solid black;
+            border-radius: 5px;
+        }
+
     </style>
 </head>
 <body>
     <h1>Pong Solo</h1>
 
-    <p>Este é um jogo por Bento Rulli Gomes</p>
-    <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como</p>
-    <p>Mas enquanto isso aproveite o que eu fiz</p>
-    <p>É o que tem pra hoje</p>
+    <p>Este é um jogo por Bento Rulli Gomes.</p>
+    <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como.</p>
+    <p>Mas enquanto isso aproveite o que eu fiz.</p>
+    <p>É o que tem pra hoje.</p>
 
-    <h2>TUTORIAL:</h2>
+    <div id="tutorial">
+        <h2>TUTORIAL:</h2>
     
-    <ul>
-        <li>A pequena linha do lado esquerdo é você</li>
-        <li>Ela vai seguir seu mouse no eixo y</li>
-        <li>A cada vez que vc acerta a bola vc ganha 1 ponto, mas a velocidade dela aumenta</li>
-        <li>Não deixe a bola azul tocar no lado esquerdo da tela</li>
-        <li>Caso contrário...</li>
-    </ul>
+        <ul>
+            <li>A pequena linha do lado esquerdo é você</li>
+            <li>Ela vai seguir seu mouse no eixo y</li>
+            <li>A cada vez que vc acerta a bola vc ganha 1 ponto, mas a velocidade dela aumenta</li>
+            <li>Não deixe a bola azul tocar no lado esquerdo da tela</li>
+            <li>Caso contrário...</li>
+        </ul>
+    </div>
 
     <script>
     function setup() {
@@ -101,8 +113,7 @@
         rect(50, yguy, 5, 60); // player rectangle
 
         if (x-15 <= 55 && x-15 >= 50 && y+15 >= yguy && y-15 <= yguy+60) { // If hitting player's racket
-            speedX *= -1; // come back
-            speedX += 0.1; // makes ball speed up
+            speedX *= -1.1; // comes back and increases speed
             points++; // aumenta a pontuação
         }
 
@@ -121,11 +132,11 @@
             fill(100, 200, 250);
             stroke(255, 0, 0);
             strokeWeight(3);
-            rect(90, 250, 300, 60); // destaque em vc perdendo
+            rect(90, 150, 300, 60); // destaque em vc perdendo
 
             fill(255, 50, 50);
             textSize(50); 
-            text("VC PERDEU", 95, 300); // appear text telling ya your state of loser
+            text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
 
             /*fill(255);
             rect(150, 80, 150, 60); // restart button
