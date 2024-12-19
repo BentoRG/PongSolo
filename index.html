@@ -8,6 +8,7 @@
     <style>
         canvas {
             border: 4px solid black;
+            border-left: 10px solid red;
         }
 
         body {
@@ -20,11 +21,13 @@
             font-size: 4em;
             text-align: center;
             line-height: 30px;
+            border-bottom: 4px dotted black;
+            padding-bottom: 30px;
         }
 
         h2 {
             line-height: 1em;    
-            font-family: sans-serif, fantasy;
+            font-family: sans-serif;
             text-decoration: underline;
             font-style: italic;
             text-align: center;
@@ -32,28 +35,40 @@
 
         #tutorial {
             background-color: rgb(100, 200, 255);
+
             float: right;
+
             position: relative;
             right: 5vw;
+
             border: 5px solid black;
             border-radius: 20px;
+
             display: inline-block;
             padding: 5px;
+
             width: 50%;
         }
 
         #creditos {
             background-color: #F38630;
+
             padding: 5px;
             display: inline-block;
+
             border: 5px solid black;
             border-radius: 20px;
+
             float: right;
+
             position: relative;
             right: 5vw;
             top: 2.5vw;
+
             width: 50%;
+
             line-height: 0.5em;
+            text-align: center;
         }
 
     </style>
@@ -68,9 +83,9 @@
             <li>A pequena linha do lado esquerdo é você</li>
             <li>Ela vai seguir seu mouse no eixo y</li>
             <li>A cada vez que vc acerta a bola vc ganha 1 ponto, mas a velocidade dela aumenta</li>
-            <li>Não deixe a bola azul tocar no lado esquerdo da tela</li>
+            <li>Não deixe a bola azul tocar no lado vermelho da tela</li>
             <li>Caso contrário você perderá</li>
-            <li>Para reiniciar recarregue a página</li>
+            <li>Recarregue a página para reiniciar o jogo</li>
         </ul>
     </div>
 
@@ -96,6 +111,12 @@
 
     function draw () {
         background(255);
+
+        var yguy;
+
+        stroke(127, 127, 127);
+        strokeWeight(1);
+        line(52.5, 0, 52.5, 400);
 
         noStroke();
         fill(100, 200, 250);
