@@ -85,7 +85,6 @@
             <li>A cada vez que vc acerta a bola vc ganha 1 ponto, mas a velocidade dela aumenta</li>
             <li>Não deixe a bola azul tocar no lado vermelho da tela</li>
             <li>Caso contrário você perderá</li>
-            <li>Recarregue a página para reiniciar o jogo</li>
         </ul>
     </div>
 
@@ -99,17 +98,41 @@
     <script>
     function setup() {
         createCanvas(400, 400);
+        one();
     }
 
-    var speedX = 3; // x direction
-    var speedY = 3; // y direction
-    
-    var y = 200; // y position
-    var x = 200; // x position
+    var x;
+    var y;
+    var speedX;
+    var speedY;
+    var points;
 
-    var points = 0; // pontuação
+    var game_over = false;
 
-    function draw () {
+    var atual = 1;
+
+    var one = function() {
+        
+        game_over = false;
+        atual = 1;
+
+        background(167, 219, 216);
+
+        fill(0);
+        textSize(50);
+        noStroke();
+        text("START GAME", 40, 100)
+
+        textSize(25);
+        text("Leia à sua direita sobre como jogar ==>", 90, 150, 260);
+
+        text("Quando estiver pronto, clique em qualquer lugar nesta tela para começar", 70, 260, 300);
+    }
+        
+    var two = function() {
+
+        atual = 2;
+
         background(255);
 
         var yguy;
@@ -176,23 +199,37 @@
             textSize(50); 
             text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
 
-            /*fill(255);
-            rect(150, 80, 150, 60); // restart button
-
-            fill(0);
-            textSize(40);
             noStroke();
-            text("Restart", 155, 125);*/
+            fill(0);
+            textSize(25);
+            text("Clique em qualquer lugar para voltar ao início", 90, 260, 300);
+
+            game_over = true;
         }
     }
 
-    /*function mouseClicked () {
-        if (mouseX >= 150 && mouseX <= 300 && mouseY >= 80 && mouseY <= 140) {
-            fill(0);
-            textSize(30);
-            text("worked", 300, 300);
+        function draw() {
+            if (atual === 2) {
+                two();
+            }
         }
-    }*/
+
+        mouseClicked = function() {
+            if (mouseX >= 0 && mouseX <= 400 && mouseY >= 0 && mouseY <= 400) {
+                if (atual === 1) {
+                    y = 200; // y position
+                    x = 200; // x position
+
+                    speedX = 3; // x direction
+                    speedY = 3; // y direction
+                    points = 0; // pontuação
+
+                    two();
+                } else if (atual === 2 && game_over) {
+                    one();
+                };
+            };
+        }   ;
 
     </script>
 </body>
