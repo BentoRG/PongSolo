@@ -8,7 +8,7 @@
     <style>
         canvas {
             border: 4px solid black;
-            border-left: 10px solid red;
+            border-left: 10px solid rgb(255, 174, 73);
         }
 
         body {
@@ -34,7 +34,7 @@
         }
 
         #tutorial {
-            background-color: rgb(100, 200, 255);
+            background-color: rgb(99, 180, 255);
 
             float: right;
 
@@ -51,7 +51,7 @@
         }
 
         #creditos {
-            background-color: #F38630;
+            background-color: rgb(255, 174, 73);
 
             padding: 5px;
             display: inline-block;
@@ -116,7 +116,7 @@
         game_over = false;
         atual = 1;
 
-        background(167, 219, 216);
+        background(143, 212, 255);
 
         fill(0);
         textSize(50);
@@ -190,12 +190,12 @@
             speedX = 0;
             speedY = 0; // make ball stop functioning
 
-            fill(100, 200, 250);
-            stroke(255, 0, 0);
+            fill(255, 174, 73);
+            stroke(99, 180, 255);
             strokeWeight(3);
             rect(90, 150, 300, 60); // destaque em vc perdendo
 
-            fill(255, 50, 50);
+            fill(99, 180, 255);
             textSize(50); 
             text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
 
