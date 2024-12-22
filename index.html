@@ -89,7 +89,7 @@
     </div>
 
     <div id="creditos">
-        <p>Este é um jogo por <a target="_blank" href="https://www.google.com/imgres?q=bento%20rulli%20gomes&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D3635522366510744&imgrefurl=https%3A%2F%2Fwww.facebook.com%2Fescolacarolinapatriciooficial%2Fposts%2Fhoje-%25C3%25A9-dia-parabenizar-os-nossos-alunos-saiu-o-resultado-do-concurso-canguru-de-%2F3635522963177351%2F&docid=0Fl_SKh0OFc-MM&tbnid=pKJDIHm61yNIGM&vet=12ahUKEwis95GujP2JAxWTpZUCHatXEZcQM3oECBYQAA..i&w=768&h=960&hcb=2&ved=2ahUKEwis95GujP2JAxWTpZUCHatXEZcQM3oECBYQAA">Bento Rulli Gomes</a>.</p>
+        <p>Este é um jogo por <a target="_blank" href="show.jpg">Bento Rulli Gomes</a>.</p>
         <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como.</p>
         <p>Mas enquanto isso aproveite o que eu fiz.</p>
         <p>É o que tem pra hoje.</p>
@@ -121,12 +121,14 @@
         fill(0);
         textSize(50);
         noStroke();
-        text("START GAME", 40, 100)
+        text("START GAME", 50, 50)
 
         textSize(25);
-        text("Leia à sua direita sobre como jogar ==>", 90, 150, 260);
+        text("Leia à sua direita sobre como jogar ==>", 90, 80, 260);
 
-        text("Quando estiver pronto, clique em qualquer lugar nesta tela para começar", 70, 260, 300);
+        text("Quando estiver pronto, clique em qualquer lugar nesta tela para começar", 70, 170, 300);
+
+        text("Durante o jogo clique em qualquer lugar para pausar", 60, 300, 330);
     }
         
     var two = function() {
@@ -192,9 +194,10 @@
 
             fill(255, 174, 73);
             stroke(99, 180, 255);
-            strokeWeight(3);
+            strokeWeight(5);
             rect(90, 150, 300, 60); // destaque em vc perdendo
 
+            noStroke();
             fill(99, 180, 255);
             textSize(50); 
             text("VC PERDEU", 95, 200); // appear text telling ya your state of loser
@@ -208,11 +211,31 @@
         }
     }
 
+        var pause = function() {
+            background(220);
+
+            atual = 21;
+
+            noStroke();
+
+            textSize(50);
+            fill(0);
+            text("PAUSE", 120, 120);
+
+            textSize(25);
+            text("Pontos atuais: "+points, 110, 250);
+
+            noFill();
+            stroke(0);
+            strokeWeight(3);
+            rect(100, 215, 210, 50);
+        };
+
         function draw() {
             if (atual === 2) {
                 two();
-            }
-        }
+            };
+        };
 
         mouseClicked = function() {
             if (mouseX >= 0 && mouseX <= 400 && mouseY >= 0 && mouseY <= 400) {
@@ -227,9 +250,13 @@
                     two();
                 } else if (atual === 2 && game_over) {
                     one();
+                } else if (atual === 2) {
+                    pause();
+                } else if (atual === 21) {
+                    two();
                 };
             };
-        }   ;
+        };
 
     </script>
 </body>
