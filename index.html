@@ -39,7 +39,7 @@
             float: right;
 
             position: relative;
-            right: 5vw;
+            right: 2vw;
 
             border: 5px solid black;
             border-radius: 20px;
@@ -47,7 +47,7 @@
             display: inline-block;
             padding: 5px;
 
-            width: 50%;
+            width: 55%;
         }
 
         #creditos {
@@ -62,10 +62,10 @@
             float: right;
 
             position: relative;
-            right: 5vw;
+            right: 2vw;
             top: 2.5vw;
 
-            width: 50%;
+            width: 55%;
 
             line-height: 0.5em;
             text-align: center;
@@ -90,7 +90,7 @@
 
     <div id="creditos">
         <p>Este é um jogo por <a target="_blank" href="show.jpg">Bento Rulli Gomes</a>.</p>
-        <p>Ainda não é totalmente funcional, mas vai ser quando eu souber como.</p>
+        <p>Ainda não é totalmente funcional, mas já é quase como eu queria que fosse.</p>
         <p>Mas enquanto isso aproveite o que eu fiz.</p>
         <p>É o que tem pra hoje.</p>
     </div>
@@ -240,7 +240,7 @@
         mouseClicked = function() {
             if (mouseX >= 0 && mouseX <= 400 && mouseY >= 0 && mouseY <= 400) {
                 if (atual === 1) {
-                    y = 200; // y position
+                    y = random(30, 370); // y position
                     x = 200; // x position
 
                     speedX = 3; // x direction
@@ -258,6 +258,6 @@
             };
         };
 
-    </script>
+    </script>  
 </body>
 </html>
